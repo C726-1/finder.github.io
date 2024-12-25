@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #000000;
+            background-color: #000000; /* Background color changed to black */
             color: #d3bda7;
         }
 
@@ -88,184 +88,11 @@
 
         <!-- Search Bar -->
         <div>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>App Search Bar</title>
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-                <style>
-                    body {
-                        font-family: 'Inter', sans-serif;
-                        background-color: transparent;
-                        color: #f9f9f9;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100vh;
-                        margin: 0;
-                        backdrop-filter: blur(10px);
-                    }
-                    .search-container {
-                        position: relative;
-                        width: 100%;
-                        max-width: 800px;
-                        margin: 20px auto;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
-                    .search-input {
-                        width: 100%;
-                        padding: 15px 50px 15px 60px;
-                        border: none;
-                        border-radius: 30px;
-                        background-color: rgba(85, 85, 85, 0.8);
-                        color: #f9f9f9;
-                        font-size: 1.2rem;
-                        outline: none;
-                        transition: background-color 0.3s, box-shadow 0.3s;
-                    }
-                    .search-input::placeholder {
-                        color: #bbb;
-                        text-align: center;
-                    }
-                    .search-input:focus {
-                        background-color: rgba(68, 68, 68, 0.9);
-                        box-shadow: 0 0 5px #f9f9f9;
-                    }
-                    .search-icon {
-                        position: absolute;
-                        left: 15px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        color: #bbb;
-                        font-size: 1.5rem;
-                    }
-                    .autocomplete-suggestions {
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background-color: rgba(85, 85, 85, 0.8);
-                        color: #f9f9f9;
-                        border-radius: 10px;
-                        z-index: 10;
-                        max-height: 200px;
-                        overflow-y: auto;
-                    }
-                    .autocomplete-suggestion {
-                        padding: 10px;
-                        cursor: pointer;
-                        transition: background-color 0.3s;
-                    }
-                    .autocomplete-suggestion:hover, .autocomplete-suggestion.active {
-                        background-color: rgba(68, 68, 68, 0.9);
-                    }
-                </style>
-            </head>
-            <body>
-
             <div class="search-container">
                 <span id="search-icon" class="material-symbols-outlined search-icon">search</span>
                 <input type="text" class="search-input" id="search-input" placeholder="Search..">
                 <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
             </div>
-
-            <script>
-                const searchInput = document.getElementById('search-input');
-                const autocompleteSuggestions = document.getElementById('autocomplete-suggestions');
-
-                const appLinks = {
-                    "games": "https://sites.google.com/view/youform-/apps/extensions?authuser=0",
-                    "calculator": "https://calculator.apps.chrome/",
-                    "Weather": "https://weather.tomorrow.io/",
-                    "earth":"https://earth.google.com/web/",
-                    "workspace":"https://sites.google.com/view/youform-/apps/workplace?authuser=0",
-                    "settings":"https://sites.google.com/view/youform-/apps/settings?authuser=0",
-                    "tools":"https://sites.google.com/view/youform-/apps/tools?authuser=0",
-                    "shop":"https://sites.google.com/view/youform-/error",
-                    "finder":"https://sites.google.com/view/yf-dev/home",
-                    "developer":"https://sites.google.com/view/yf-developer/page_1",
-                    "youformai":"https://sites.google.com/view/youformai/page?authuser=0",
-                    "account":"https://myaccount.google.com/?utm_source=chrome-profile-chooser&pli=1&nlr=1",
-                    "folder":"https://sites.google.com/view/youform-/folder",
-                    "projects":"https://sites.google.com/view/youform-/folder/projects",
-                    "announcments":"https://sites.google.com/view/youform-/folder/announcments?authuser=0",
-                    "subscription":"https://sites.google.com/view/youform-/folder/subscription_1?authuser=0",
-                };
-
-                let suggestionIndex = -1;
-
-                function showAutocomplete(query) {
-                    autocompleteSuggestions.innerHTML = '';
-                    suggestionIndex = -1;
-
-                    if (query) {
-                        const matchedApps = Object.keys(appLinks).filter(app =>
-                            app.toLowerCase().startsWith(query.toLowerCase())
-                        );
-
-                        matchedApps.forEach(app => {
-                            const suggestionItem = document.createElement('div');
-                            suggestionItem.classList.add('autocomplete-suggestion');
-                            suggestionItem.textContent = app;
-                            suggestionItem.addEventListener('click', () => handleAppRedirect(app));
-                            autocompleteSuggestions.appendChild(suggestionItem);
-                        });
-                    }
-                }
-
-                function handleAppRedirect(query) {
-                    if (appLinks[query.toLowerCase()]) {
-                        window.open(appLinks[query.toLowerCase()], '_blank');
-                    } else {
-                        window.open(`https://www.google.com/search?q=${query}`, '_blank');
-                    }
-                }
-
-                function handleKeyboardNavigation(event) {
-                    const suggestions = autocompleteSuggestions.querySelectorAll('.autocomplete-suggestion');
-
-                    if (event.key === 'ArrowDown') {
-                        suggestionIndex = (suggestionIndex + 1) % suggestions.length;
-                        highlightSuggestion(suggestions);
-                    } else if (event.key === 'ArrowUp') {
-                        suggestionIndex = (suggestionIndex - 1 + suggestions.length) % suggestions.length;
-                        highlightSuggestion(suggestions);
-                    } else if (event.key === 'Enter' && suggestionIndex >= 0) {
-                        suggestions[suggestionIndex].click();
-                    }
-                }
-
-                function highlightSuggestion(suggestions) {
-                    suggestions.forEach((suggestion, index) => {
-                        suggestion.classList.toggle('active', index === suggestionIndex);
-                    });
-                }
-
-                let debounceTimer;
-                searchInput.addEventListener('input', () => {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => {
-                        const query = searchInput.value.trim();
-                        showAutocomplete(query);
-                    }, 300);
-                });
-
-                searchInput.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter' && suggestionIndex === -1) {
-                        handleAppRedirect(searchInput.value.trim());
-                    }
-                });
-
-                searchInput.addEventListener('keydown', handleKeyboardNavigation);
-            </script>
-
-            </body>
-            </html>
         </div>
 
         <!-- Icon Grid Section 1 -->
@@ -297,7 +124,7 @@
         </div>
 
         <!-- Divider -->
-        <div class="divider"></div>z
+        <div class="divider"></div>
 
         <!-- Icon Grid Section 2 -->
         <div class="icon-grid">
