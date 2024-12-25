@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #d2b48c; /* Light tan color */
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #121212;
+            color: #d2b48c;
+            font-size: 1rem;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #d2b48c;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header a:hover {
+            color: #fff;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: #2c2c2c;
+            color: #d2b48c;
+            font-size: 1rem;
+        }
+
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .icon {
+            width: 120px;
+            height: 120px;
+            background-color: #1c1c1c;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #d2b48c;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .icon:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        .icon img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .icon span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#"><span>&larr;</span> Back</a>
+    </div>
+
+    <div class="main-content">
+        <div class="search-bar">
+            <input type="text" placeholder="Search..">
+        </div>
+
+        <div class="icon-container">
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Updates">
+                <span>Updates</span>
+            </a>
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Calendar">
+                <span>Calendar</span>
+            </a>
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Google Drive">
+                <span>Google Drive</span>
+            </a>
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Docs">
+                <span>Docs</span>
+            </a>
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Slides">
+                <span>Slides</span>
+            </a>
+            <a href="#" class="icon">
+                <img src="https://via.placeholder.com/40" alt="Sheets">
+                <span>Sheets</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
