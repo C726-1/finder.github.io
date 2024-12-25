@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finder Status</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap');
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
-            background: transparent; /* Transparent background */
+            background: #000; /* Black background */
             font-family: 'Inter', sans-serif;
             color: #fff;
         }
@@ -23,6 +24,7 @@
             gap: 20px;
             font-size: 3.5rem;
             font-weight: 600;
+            margin-bottom: 30px;
         }
 
         .word {
@@ -48,10 +50,36 @@
             }
         }
 
-        /* Subtle glow effect for text */
-        .word {
-            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        /* Button styling */
+        .button-container {
+            text-align: center;
         }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            background: none;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .button span {
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -61,6 +89,11 @@
         <span class="word">is</span>
         <span class="word">currently</span>
         <span class="word">down</span>
+    </div>
+    <div class="button-container">
+        <a class="button" href="https://youform.betteruptime.com" target="_blank">
+            <span>View Report</span> &#8594;
+        </a>
     </div>
 </body>
 </html>
