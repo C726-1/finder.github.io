@@ -80,11 +80,11 @@
             background-color: #444;
         }
 
-        /* Search Bar Styles */
+        /* New Search Bar Styles */
         .search-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Increased max-width */
+            max-width: 800px;
             margin: 20px auto;
             display: flex;
             justify-content: space-between;
@@ -92,33 +92,33 @@
         }
 
         .search-input {
-            width: 100%; /* Stretches to fit the container */
+            width: 100%;
             padding: 15px 50px 15px 60px; /* Space for icon */
-            border: none; /* Remove border */
+            border: none;
             border-radius: 30px;
             background-color: rgba(85, 85, 85, 0.8); /* Semi-transparent background */
-            color: #f9f9f9; /* Light text color */
+            color: #f9f9f9;
             font-size: 1.2rem;
             outline: none;
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .search-input::placeholder {
-            color: #bbb; /* Light grey placeholder text */
+            color: #bbb;
             text-align: center;
         }
 
         .search-input:focus {
-            background-color: rgba(68, 68, 68, 0.9); /* Slightly darker on focus */
-            box-shadow: 0 0 5px #f9f9f9; /* Add subtle glow */
+            background-color: rgba(68, 68, 68, 0.9);
+            box-shadow: 0 0 5px #f9f9f9;
         }
 
         .search-icon {
             position: absolute;
-            left: 15px; /* Position icon inside the input */
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            color: #bbb; /* Light grey for the icon */
+            color: #bbb;
             font-size: 1.5rem;
         }
 
@@ -127,9 +127,9 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: rgba(85, 85, 85, 0.8); /* Semi-transparent suggestions */
-            color: #f9f9f9; /* Light suggestion text */
-            border-radius: 10px; /* Rounded corners */
+            background-color: rgba(85, 85, 85, 0.8);
+            color: #f9f9f9;
+            border-radius: 10px;
             z-index: 10;
             max-height: 200px;
             overflow-y: auto;
@@ -142,7 +142,7 @@
         }
 
         .autocomplete-suggestion:hover, .autocomplete-suggestion.active {
-            background-color: rgba(68, 68, 68, 0.9); /* Highlight suggestion */
+            background-color: rgba(68, 68, 68, 0.9);
         }
     </style>
 </head>
@@ -152,10 +152,12 @@
         <a href="#" class="back">← Back</a>
 
         <!-- Search Bar -->
-        <div class="search-container">
-            <span id="search-icon" class="material-symbols-outlined search-icon">search</span>
-            <input type="text" class="search-input" id="search-input" placeholder="Search..">
-            <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
+        <div>
+            <div class="search-container">
+                <span id="search-icon" class="material-symbols-outlined search-icon">search</span>
+                <input type="text" class="search-input" id="search-input" placeholder="Search..">
+                <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
+            </div>
         </div>
 
         <!-- Icon Grid Section 1 -->
@@ -221,8 +223,6 @@
     <script>
         const searchInput = document.getElementById('search-input');
         const autocompleteSuggestions = document.getElementById('autocomplete-suggestions');
-
-        // List of apps and their URLs
         const appLinks = {
             "games": "https://sites.google.com/view/youform-/apps/extensions?authuser=0",
             "calculator": "https://calculator.apps.chrome/",
@@ -244,9 +244,8 @@
 
         let suggestionIndex = -1;
 
-        // Show autocomplete suggestions
         function showAutocomplete(query) {
-            autocompleteSuggestions.innerHTML = ''; // Clear previous suggestions
+            autocompleteSuggestions.innerHTML = '';
             suggestionIndex = -1;
 
             if (query) {
@@ -264,16 +263,14 @@
             }
         }
 
-        // Handle app redirection
         function handleAppRedirect(query) {
             if (appLinks[query.toLowerCase()]) {
                 window.open(appLinks[query.toLowerCase()], '_blank');
             } else {
-                window.open(`https://www.google.com/search?q=${query}`, '_blank'); // Fallback to Google Search
+                window.open(`https://www.google.com/search?q=${query}`, '_blank');
             }
         }
 
-        // Keyboard navigation
         function handleKeyboardNavigation(event) {
             const suggestions = autocompleteSuggestions.querySelectorAll('.autocomplete-suggestion');
 
@@ -288,14 +285,12 @@
             }
         }
 
-        // Highlight active suggestion
         function highlightSuggestion(suggestions) {
             suggestions.forEach((suggestion, index) => {
                 suggestion.classList.toggle('active', index === suggestionIndex);
             });
         }
 
-        // Debounced input handling
         let debounceTimer;
         searchInput.addEventListener('input', () => {
             clearTimeout(debounceTimer);
@@ -305,14 +300,12 @@
             }, 300);
         });
 
-        // Handle Enter key for redirection
         searchInput.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' && suggestionIndex === -1) {
                 handleAppRedirect(searchInput.value.trim());
             }
         });
 
-        // Handle keyboard navigation
         searchInput.addEventListener('keydown', handleKeyboardNavigation);
     </script>
 </body>
