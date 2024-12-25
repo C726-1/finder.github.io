@@ -55,7 +55,7 @@
         .icon-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
             justify-content: center;
         }
 
@@ -64,21 +64,31 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             background-color: #1e1e1e;
             border-radius: 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         .icon img {
-            width: 50%;
+            width: 70px;
+            height: 70px;
             margin-bottom: 10px;
         }
 
         .icon p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #d3bda7;
         }
 
@@ -102,30 +112,30 @@
 
         <!-- Icon Grid Section 1 -->
         <div class="icon-grid">
-            <div class="icon">
-                <img src="updates.png" alt="Updates">
+            <a href="#" class="icon">
+                <img src="announcments.png" alt="Updates">
                 <p>Updates</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="calendar.png" alt="Calendar">
                 <p>Calendar</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="drive.png" alt="Google Drive">
                 <p>Google Drive</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="docs.png" alt="Docs">
                 <p>Docs</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="slides.png" alt="Slides">
                 <p>Slides</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="sheets.png" alt="Sheets">
                 <p>Sheets</p>
-            </div>
+            </a>
         </div>
 
         <!-- Divider -->
@@ -133,30 +143,30 @@
 
         <!-- Icon Grid Section 2 -->
         <div class="icon-grid">
-            <div class="icon">
+            <a href="#" class="icon">
                 <img src="weather.png" alt="Weather">
                 <p>Weather</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="games.png" alt="Games">
                 <p>Games</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="extensions.png" alt="Extensions">
                 <p>Extensions</p>
-            </div>
-            <div class="icon">
-                <img src="FAQ'S.png" alt="FAQ's">
+            </a>
+            <a href="#" class="icon">
+                <img src="FAQ's.png" alt="FAQ's">
                 <p>FAQ's</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="plans.png" alt="Our Plans">
                 <p>Our Plans</p>
-            </div>
-            <div class="icon">
+            </a>
+            <a href="#" class="icon">
                 <img src="settings.png" alt="Settings">
                 <p>Settings</p>
-            </div>
+            </a>
         </div>
     </div>
 </body>
