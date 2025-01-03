@@ -3,154 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navigation Bar and Icons</title>
+  <title>Apps</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #000;
-      color: white;
+      color: #fff;
     }
 
+    /* Navbar Styles */
     .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background-color: #1a1a1a;
       padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .left-icons,
+    .navbar .right-icons {
+      display: flex;
+      align-items: center;
     }
 
     .navbar .icon {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
       margin: 0 10px;
     }
 
     .navbar .icon img {
       width: 100%;
       height: 100%;
-      display: block;
+      object-fit: contain;
     }
 
-    .icon-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+    /* Dashboard Styles */
+    .dashboard {
+      width: 80%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
+      justify-content: center;
       padding: 20px;
+      margin: 0 auto;
     }
 
-    .icon-container .icon {
+    .item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      font-size: 14px;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .icon-container .icon img {
-      width: 80px;
-      height: 80px;
+    .item:hover {
+      transform: scale(1.1);
+    }
+
+    .item img {
+      width: 120px; /* Match the size of the rounded squares */
+      height: 120px;
+      object-fit: contain;
       margin-bottom: 10px;
+    }
+
+    .item span {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .divider {
+      grid-column: span 6;
+      border-top: 1px solid #444;
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
   <div class="navbar">
     <div class="left-icons">
-      <div class="icon">
-        <a href="index.html">
-          <img src="home.png" alt="Home">
-        </a>
+      <div class="icon" onclick="window.location.href='home.html'">
+        <img src="home.png" alt="Home Icon">
       </div>
-      <div class="icon">
-        <a href="apps.html">
-          <img src="apps2.png" alt="Apps">
-        </a>
+      <div class="icon" onclick="window.location.href='grid.html'">
+        <img src="apps2.png" alt="Grid Icon">
       </div>
     </div>
     <div class="right-icons">
-      <div class="icon">
-        <a href="info.html">
-          <img src="info.png" alt="Info">
-        </a>
+      <div class="icon" onclick="window.location.href='info.html'">
+        <img src="info.png" alt="Info Icon">
       </div>
     </div>
   </div>
 
-  <div class="icon-container">
-    <div class="icon">
-      <a href="updates.html">
-        <img src="121/updates.png" alt="Updates">
-        <span>Updates</span>
-      </a>
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <!-- Row 1 -->
+    <div class="item" onclick="window.location.href='updates.html'">
+      <img src="121/updates.png" alt="Updates Icon">
+      <span>Updates</span>
     </div>
-    <div class="icon">
-      <a href="https://weather.com" target="_blank">
-        <img src="121/weather.png" alt="Weather">
-        <span>Weather</span>
-      </a>
+    <div class="item" onclick="window.open('https://weather.tomorrow.io', '_blank')">
+      <img src="121/weather.png" alt="Weather Icon">
+      <span>Weather</span>
     </div>
-    <div class="icon">
-      <a href="https://drive.google.com" target="_blank">
-        <img src="121/drive.png" alt="Google Drive">
-        <span>Google Drive</span>
-      </a>
+    <div class="item" onclick="window.open('https://drive.google.com', '_blank')">
+      <img src="121/drive.png" alt="Google Drive Icon">
+      <span>Google Drive</span>
     </div>
-    <div class="icon">
-      <a href="https://docs.google.com" target="_blank">
-        <img src="121/docs.png" alt="Docs">
-        <span>Docs</span>
-      </a>
+    <div class="item" onclick="window.open('https://docs.google.com', '_blank')">
+      <img src="121/docs.png" alt="Docs Icon">
+      <span>Docs</span>
     </div>
-    <div class="icon">
-      <a href="https://slides.google.com" target="_blank">
-        <img src="121/slides.png" alt="Slides">
-        <span>Slides</span>
-      </a>
+    <div class="item" onclick="window.open('https://slides.google.com', '_blank')">
+      <img src="121/slides.png" alt="Slides Icon">
+      <span>Slides</span>
     </div>
-    <div class="icon">
-      <a href="https://sheets.google.com" target="_blank">
-        <img src="121/sheets.png" alt="Sheets">
-        <span>Sheets</span>
-      </a>
+    <div class="item" onclick="window.open('https://sheets.google.com', '_blank')">
+      <img src="121/sheets.png" alt="Sheets Icon">
+      <span>Sheets</span>
     </div>
-    
-    <div class="icon">
-      <a href="search.html">
-        <img src="121/search.png" alt="Search">
-        <span>Search</span>
-      </a>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Row 2 -->
+    <div class="item" onclick="window.location.href='search.html'">
+      <img src="121/search.png" alt="Search Icon">
+      <span>Search</span>
     </div>
-    <div class="icon">
-      <a href="projects.html">
-        <img src="121/projects.png" alt="Projects">
-        <span>Projects</span>
-      </a>
+    <div class="item" onclick="window.location.href='projects.html'">
+      <img src="121/projects.png" alt="Projects Icon">
+      <span>Projects</span>
     </div>
-    <div class="icon">
-      <a href="games.html">
-        <img src="121/games.png" alt="Games">
-        <span>Games</span>
-      </a>
+    <div class="item" onclick="window.location.href='games.html'">
+      <img src="121/games.png" alt="Games Icon">
+      <span>Games</span>
     </div>
-    <div class="icon">
-      <a href="faqs.html">
-        <img src="121/faqs.png" alt="FAQs">
-        <span>FAQs</span>
-      </a>
+    <div class="item" onclick="window.location.href='faqs.html'">
+      <img src="121/faqs.png" alt="FAQs Icon">
+      <span>FAQ's</span>
     </div>
-    <div class="icon">
-      <a href="plans.html">
-        <img src="121/plans.png" alt="Our Plans">
-        <span>Our Plans</span>
-      </a>
+    <div class="item" onclick="window.location.href='plans.html'">
+      <img src="121/plans.png" alt="Our Plans Icon">
+      <span>Our Plans</span>
     </div>
-    <div class="icon">
-      <a href="settings.html">
-        <img src="121/settings.png" alt="Settings">
-        <span>Settings</span>
-      </a>
+    <div class="item" onclick="window.location.href='settings.html'">
+      <img src="121/settings.png" alt="Settings Icon">
+      <span>Settings</span>
     </div>
   </div>
 </body>
