@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finder</title>
+    <title>Home Page</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap');
 
         body {
             margin: 0;
@@ -26,9 +26,16 @@
             z-index: 1000;
         }
 
+        .navbar .left-icons,
+        .navbar .right-icons {
+            display: flex;
+            align-items: center;
+        }
+
         .navbar .icon {
-            width: 40px;
-            height: 40px;
+            width: 30px; /* Smaller icons */
+            height: 30px;
+            margin: 0 10px;
         }
 
         .navbar .icon img {
@@ -37,63 +44,109 @@
             display: block;
         }
 
-        .navbar .icon:nth-child(1),
-        .navbar .icon:nth-child(2) {
-            margin-right: 15px; /* Adds spacing between Home and Apps icons */
-        }
-
-        .navbar .icon:nth-child(3) {
-            margin-left: auto; /* Pushes Info button to the far right */
-        }
-
         .content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding-top: 80px; /* Adjusted for the navbar */
+            padding-top: 80px; /* Adjust for the height of the navbar */
             text-align: center;
         }
 
         #welcome {
-            font-size: 2.5rem;
+            display: flex;
+            gap: 20px;
+            font-size: 3.5rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .word {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .word:nth-child(1) { animation-delay: 0s; }
+        .word:nth-child(2) { animation-delay: 0.3s; }
+        .word:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .word {
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         #time-widget {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
         }
 
         .date {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 500;
-            color: #ccc;
+            margin-top: 10px;
+            color: #dcdcdc;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #time-widget, .date {
+            animation: fadeIn 1.5s ease-in-out;
         }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <div class="navbar">
-        <!-- Left Side -->
-        <div class="item" onclick="window.location.href='index.html'">
-            <img src="home2.png" alt="Home Icon">
+        <div class="left-icons">
+            <!-- Home Icon -->
+            <div class="icon" onclick="window.location.href='index.html'">
+                <img src="home.png" alt="Home Icon">
+            </div>
+            <!-- Apps Icon -->
+            <div class="icon" onclick="window.location.href='apps.html'">
+                <img src="apps.png" alt="Apps Icon">
+            </div>
         </div>
-         <div class="item" onclick="window.location.href='apps.html'">
-            <img src="apps.png" alt="Apps Icon">
-        </div>
-        <!-- Right Side -->
-         <div class="item" onclick="window.location.href='info.html'">
-            <img src="info.png" alt="Info Icon">
+        <div class="right-icons">
+            <!-- Info Icon -->
+            <div class="icon" onclick="window.location.href='info.html'">
+                <img src="info2.png" alt="Info Icon">
+            </div>
         </div>
     </div>
 
     <!-- Content -->
     <div class="content">
-        <div id="welcome">Welcome to Finder</div>
+        <div id="welcome">
+            <span class="word">Welcome</span>
+            <span class="word">to</span>
+            <span class="word">Finder</span>
+        </div>
+
         <div id="time-widget"></div>
         <div class="date" id="date-widget"></div>
     </div>
