@@ -59,33 +59,29 @@
     }
 
     .item {
-      background-color: #222;
-      border-radius: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
       cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .item:hover {
       transform: scale(1.1);
-      background-color: #333;
     }
 
     .item img {
-      width: 80px;
-      height: 80px;
+      width: 120px; /* Match the size of the rounded squares */
+      height: 120px;
       object-fit: contain;
       margin-bottom: 10px;
     }
 
     .item span {
-      margin-top: 10px;
       font-size: 14px;
       font-weight: bold;
+      margin-top: 10px;
     }
 
     .divider {
@@ -116,10 +112,6 @@
   <!-- Dashboard -->
   <div class="dashboard">
     <!-- Row 1 -->
-    <div class="item" onclick="window.location.href='updates.html'">
-      <img src="121/updates.png" alt="Updates Icon">
-      <span>Updates</span>
-    </div>
     <div class="item" onclick="window.open('https://weather.com', '_blank')">
       <img src="121/weather.png" alt="Weather Icon">
       <span>Weather</span>
@@ -140,7 +132,11 @@
       <img src="121/sheets.png" alt="Sheets Icon">
       <span>Sheets</span>
     </div>
-  
+    <div class="item" onclick="window.location.href='updates.html'">
+      <img src="121/updates.png" alt="Updates Icon">
+      <span>Updates</span>
+    </div>
+
     <!-- Divider -->
     <div class="divider"></div>
 
